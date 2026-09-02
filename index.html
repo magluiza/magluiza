@@ -1,105 +1,146 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magazine Luiza - Quiz da Cozinha</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Magalu - Condição Especial</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <main class="quiz-container">
-        <section id="screen-start" class="screen active">
-            <header class="brand-header">
-                <img src="https://i.ibb.co/2fcwHQF/Air.png" alt="Logo Magalu" class="brand-logo">
-                <h1 class="brand-name">Magalu</h1>
-            </header>
-            <div class="content-card">
-                <h2 class="main-title">QUIZ DA COZINHA</h2>
-                <p class="subtitle">Teste seus conhecimentos sobre cozinha e descubra uma surpresa especial no final!</p>
-                <button id="btn-start" class="btn btn-primary btn-large">COMEÇAR QUIZ</button>
+  <div id="confetti-container" class="confetti-container"></div>
+
+  <main class="app-container">
+
+    <header class="app-header">
+      <div class="logo-wrapper">
+        <img src="https://i.ibb.co/2fcwHQF/Air.png" alt="Logo Magalu" class="app-logo" id="app-logo">
+      </div>
+    </header>
+
+    <section id="screen-welcome" class="screen active">
+      <div class="welcome-card card">
+        <div class="badge-tag">EXCLUSIVO</div>
+        <h1 class="welcome-title">QUIZ DA MAGALU</h1>
+        <p class="welcome-subtitle">Responda a 6 perguntas rápidas sobre cozinha e desbloqueie uma condição especial incrível!</p>
+        
+        <div class="welcome-features">
+          <div class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <span>Leva menos de 1 minuto</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🎁</span>
+            <span>Desconto exclusivo no final</span>
+          </div>
+        </div>
+
+        <button id="btn-start" class="btn btn-primary btn-large">
+          <span>COMEÇAR QUIZ</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    </section>
+
+    <section id="screen-quiz" class="screen">
+      <div class="progress-container">
+        <div class="progress-info">
+          <span id="progress-text">Pergunta 1 de 6</span>
+          <span id="progress-percent">16%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progress-bar-fill" class="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <div id="question-card" class="card question-card">
+        <h2 id="question-title" class="question-title">Carregando pergunta...</h2>
+        <div id="options-container" class="options-container">
+          </div>
+      </div>
+    </section>
+
+    <section id="screen-celebration" class="screen">
+      <div class="celebration-card card">
+        <div class="celebration-ring">
+          <div class="check-icon-large">✓</div>
+        </div>
+        <h2 class="celebration-title">Parabéns!</h2>
+        <p class="celebration-subtitle">Você concluiu o quiz com sucesso!</p>
+        <div class="loading-spinner"></div>
+      </div>
+    </section>
+
+    <section id="screen-reward" class="screen">
+      <div class="reward-card card">
+        <div class="reward-header">
+          <span class="reward-badge">🎉 RECOMPENSA LIBERADA</span>
+          <h2 class="reward-title">Você desbloqueou uma condição especial!</h2>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="https://i.ibb.co/2fcwHQF/Air.png" alt="Air Fryer Mondial AFN-40-BF Preta com Timer" class="product-image">
+          </div>
+          <div class="product-details">
+            <h3 id="product-name" class="product-name">Air Fryer Mondial AFN-40-BF Preta com Timer</h3>
+            <p class="product-desc">4 Litros, Painel em Inox, Tecnologia de Ar Quente, Facilidade e Rapidez na Cozinha.</p>
+            <div class="product-price-box">
+              <span class="price-label">Oportunidade única:</span>
+              <div class="discount-tag">DESCONTO DESBLOQUEADO!</div>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section id="screen-quiz" class="screen">
-            <header class="quiz-header">
-                <div class="brand-header-mini">
-                    <img src="https://i.ibb.co/2fcwHQF/Air.png" alt="Logo Magalu" class="brand-logo-mini">
-                    <span class="brand-name-mini">Magalu</span>
-                </div>
-                <div class="progress-wrapper">
-                    <div class="progress-info">
-                        <span id="progress-text">Pergunta 1 de 6</span>
-                        <span id="progress-percentage">16.6%</span>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div id="progress-bar-fill" class="progress-bar-fill"></div>
-                    </div>
-                </div>
-            </header>
+        <div id="cta-initial-box">
+          <button id="btn-claim-discount" class="btn btn-accent btn-large pulse-animation">
+            🎁 RECEBER MEU DESCONTO
+          </button>
+        </div>
 
-            <div id="question-card" class="question-card">
-                <h2 id="question-title" class="question-title">Carregando pergunta...</h2>
-                <div id="options-container" class="options-container">
-                    </div>
+        <div id="coupon-revealed-box" class="coupon-revealed-box hidden">
+          <div class="coupon-banner">
+            <p class="coupon-status">✨ SEU DESCONTO FOI LIBERADO! ✨</p>
+            <div class="coupon-code-wrapper">
+              <span class="coupon-label">CÓDIGO DO CUPOM:</span>
+              <div class="coupon-code-box">
+                <span id="coupon-code-text">MAGALU10</span>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section id="screen-loading" class="screen">
-            <div class="loading-content">
-                <div class="spinner-container">
-                    <div class="spinner"></div>
-                    <div class="pulse-ring"></div>
-                </div>
-                <h3 id="loading-text" class="loading-text">Analisando suas respostas...</h3>
-            </div>
-        </section>
+          <div class="timer-box">
+            <p class="timer-title">⏰ Seu desconto expira em:</p>
+            <div id="timer-display" class="timer-display">10:00</div>
+          </div>
 
-        <section id="screen-reward" class="screen">
-            <header class="brand-header">
-                <img src="https://i.ibb.co/2fcwHQF/Air.png" alt="Logo Magalu" class="brand-logo">
-                <h1 class="brand-name">MA!</h1>
-            </header>
+          <a id="btn-final-link" href="#" target="_blank" class="btn btn-primary btn-large btn-block">
+            <span>APROVEITAR DESCONTO AGORA</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
 
-            <div class="reward-card">
-                <div class="badge-success">PARABÉNS! 🎉</div>
-                <p class="reward-intro">Você concluiu o quiz da MA!</p>
-                
-                <div class="reward-banner">
-                    <span class="reward-tag">DESCONTO ESPECIAL LIBERADO</span>
-                    <h2 class="reward-title">Sua recompensa está liberada!</h2>
-                </div>
+      </div>
+    </section>
 
-                <div class="product-card">
-                    <div class="product-image-container">
-                        <img src="https://i.ibb.co/2fcwHQF/Air.png" alt="Air Fryer Mondial AFN-40-BF" class="product-image">
-                    </div>
-                    <h3 class="product-name">Air Fryer Mondial AFN-40-BF Preta com Timer</h3>
-                </div>
+    <section id="screen-expired" class="screen">
+      <div class="expired-card card">
+        <div class="expired-icon">⏰</div>
+        <h2 class="expired-title">Seu desconto expirou!</h2>
+        <p class="expired-subtitle">O tempo de 10 minutos para resgatar sua condição especial acabou.</p>
+        <p class="expired-text">Não se preocupe! Você pode refazer o quiz agora mesmo para tentar desbloquear o desconto novamente.</p>
+        
+        <button id="btn-restart" class="btn btn-primary btn-large">
+          ↻ VOLTAR AO INÍCIO
+        </button>
+      </div>
+    </section>
 
-                <div class="timer-card">
-                    <p class="timer-label">Seu desconto expira em:</p>
-                    <div id="timer-display" class="timer-display">10:00</div>
-                    <p class="timer-subtext">Seu desconto está reservado!</p>
-                </div>
+  </main>
 
-                <button id="btn-claim" class="btn btn-primary btn-large btn-pulse">RECEBER MEU DESCONTO</button>
-            </div>
-        </section>
-
-        <section id="screen-expired" class="screen">
-            <div class="expired-card">
-                <div class="expired-icon">⏳</div>
-                <h2 class="expired-title">Seu desconto expirou!</h2>
-                <p class="expired-text">O prazo de 10 minutos para retirar sua recompensa terminou.</p>
-                <button id="btn-restart" class="btn btn-primary btn-large">VOLTAR AO INÍCIO</button>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
